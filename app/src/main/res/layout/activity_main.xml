@@ -12,10 +12,11 @@
         android:layout_height="60dp"
         android:layout_marginStart="112dp"
         android:layout_marginEnd="113dp"
-        android:layout_marginBottom="66dp"
+        android:layout_marginBottom="112dp"
         android:text="Add Student"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -42,5 +43,29 @@
         app:layout_constraintBottom_toBottomOf="@+id/IDenter"
         app:layout_constraintStart_toEndOf="@+id/IDenter"
         app:layout_constraintTop_toTopOf="@+id/IDenter" />
+
+    <TextView
+        android:id="@+id/mainTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="41dp"
+        android:layout_marginEnd="63dp"
+        android:text="𝐒𝐭𝐮𝐝𝐞𝐧𝐭 𝐌𝐚𝐧𝐚𝐠𝐞𝐫"
+        android:textSize="40sp"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/showAllButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="Show All"
+        app:layout_constraintEnd_toEndOf="@+id/StudentButton"
+        app:layout_constraintStart_toStartOf="@+id/StudentButton"
+        app:layout_constraintTop_toBottomOf="@+id/StudentButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

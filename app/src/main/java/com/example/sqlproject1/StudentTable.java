@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.util.ArrayList;
+
 public class StudentTable extends SQLiteOpenHelper {
 
     public static final String DATABASENAME = "student.db";
@@ -90,6 +92,33 @@ public class StudentTable extends SQLiteOpenHelper {
             return s;
         }
         return null;
+    }
+
+    public long deleteStudentByID(long rowID) {
+        this.open();
+        long fina = database.delete(StudentTable.TABLE_PRODUCT, StudentTable.COLUMN_ID + "=" + rowID, null);
+        this.close();
+        return fina;
+    }
+
+    public ArrayList<Student> getAllStudents() {
+        this.open();
+        ArrayList<Student> l = new ArrayList<>();
+        Cursor cursor = database.query(StudentTable.TABLE_PRODUCT, allColumns, null, null, null, null, null);
+
+        if (cursor.getCount() > 0) {
+            while (cursor.moveToNext()) {
+                long id = cursor.getLong(cursor.getColumnIndex(StudentTable.COLUMN_ID));
+                String fname = cursor.getString(cursor.getColumnIndex(StudentTable.COLUMN_NAME));
+                String lname = cursor.getString(cursor.getColumnIndex(StudentTable.COLUMN_SURNAME));
+                String address = cursor.getString(cursor.getColumnIndex(StudentTable.COLUMN_ADDRESS));
+                int grade = cursor.getInt(cursor.getColumnIndex(StudentTable.COLUMN_AVGGRADE));
+                Student s = new Student(fname, lname, address, grade, id);
+                l.add(s);
+            }
+        }
+        this.close();
+        return l;
     }
 
 }
