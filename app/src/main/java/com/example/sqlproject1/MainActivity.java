@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
@@ -200,6 +201,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         editor.putInt("counter", counter);
         editor.commit();
 
+    }
+
+    public void goToSite (View view) {
+        goToUrl ("https://nevokaplan4.wixsite.com/bibis-adventure");
+    }
+
+    private void goToUrl (String url) {
+        Uri uriUrl = Uri.parse(url);
+        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+        startActivity(launchBrowser);
     }
 
 }
