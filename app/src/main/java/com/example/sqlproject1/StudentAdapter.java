@@ -38,6 +38,8 @@ public class StudentAdapter extends ArrayAdapter<Student> {
             ((ImageView)view.findViewById(R.id.iv)).setImageResource(R.drawable.failed);
         }
 
+        ((TextView)view.findViewById(R.id.sId)).setText(temp.getId() + "");
+
         return view;
     }
 
